@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bubblegum_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const bubblegumSans = Bubblegum_Sans({
+  variable: "--font-bubblegum-sans",
   subsets: ["latin"],
+  weight: "400",
 });
 
 const geistMono = Geist_Mono({
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/hero-garden.png",
+        url: "/hero-banner.png",
         width: 1400,
         height: 800,
         alt: "Swap Garden - Cross-chain cryptocurrency swapping platform",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Swap Garden - Cross-Chain Cryptocurrency Swaps",
     description: "Swap cryptocurrencies from any chain to any chain. Cultivate your crypto portfolio in our digital garden.",
-    images: ["/hero-garden.png"],
+    images: ["/hero-banner.png"],
   },
 };
 
@@ -46,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${bubblegumSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
