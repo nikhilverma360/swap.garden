@@ -1,36 +1,160 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Swap.Garden Monorepo
 
-## Getting Started
+A monorepo containing all components of the Swap.Garden protocol.
 
-First, run the development server:
+## 📁 Project Structure
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+swap.garden/
+├── packages/
+│   ├── frontend/          # Next.js frontend application
+│   ├── contracts/         # Solidity smart contracts
+│   ├── relayer/          # Transaction relayer service
+│   └── resolver/         # Price resolver service
+├── package.json          # Root workspace configuration
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Quick Start
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18+ 
+- Yarn package manager
+- Git
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd swap.garden
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install dependencies for all packages:
+```bash
+yarn install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Development
 
-## Deploy on Vercel
+Start all services in development mode:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Frontend (Next.js)
+yarn dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Relayer service
+yarn dev:relayer
+
+# Resolver service  
+yarn dev:resolver
+
+# Compile contracts
+yarn compile:contracts
+```
+
+## 📦 Packages
+
+### Frontend (`packages/frontend`)
+- **Framework**: Next.js 15 with React 19
+- **Styling**: Tailwind CSS 4
+- **TypeScript**: Full type safety
+- **Port**: 3000 (default)
+
+```bash
+cd packages/frontend
+yarn dev
+```
+
+### Contracts (`packages/contracts`)
+- **Framework**: Hardhat
+- **Solidity**: 0.8.19
+- **Dependencies**: OpenZeppelin contracts
+- **Testing**: Hardhat toolbox
+
+```bash
+cd packages/contracts
+yarn compile
+yarn test
+yarn deploy
+```
+
+### Relayer (`packages/relayer`)
+- **Framework**: Express.js with TypeScript
+- **Purpose**: Transaction relaying and meta-transactions
+- **Port**: 3001 (default)
+
+```bash
+cd packages/relayer
+yarn dev
+```
+
+### Resolver (`packages/resolver`)
+- **Framework**: Express.js with TypeScript  
+- **Purpose**: Price resolution and DEX aggregation
+- **Port**: 3002 (default)
+
+```bash
+cd packages/resolver
+yarn dev
+```
+
+## 🛠 Available Scripts
+
+From the root directory:
+
+- `yarn dev` - Start frontend development server
+- `yarn build` - Build all packages
+- `yarn test` - Run tests across all packages
+- `yarn lint` - Lint all packages
+- `yarn compile:contracts` - Compile smart contracts
+- `yarn dev:relayer` - Start relayer service
+- `yarn dev:resolver` - Start resolver service
+
+## 🔧 Configuration
+
+Each package has its own configuration files:
+
+- **Frontend**: `next.config.ts`, `tailwind.config.js`, `tsconfig.json`
+- **Contracts**: `hardhat.config.ts`, `tsconfig.json`
+- **Relayer**: `tsconfig.json`, `.env` (see `.env.example`)
+- **Resolver**: `tsconfig.json`, `.env` (see `.env.example`)
+
+## 🚦 Getting Started
+
+1. **Install Dependencies**: `yarn install`
+2. **Start Frontend**: `yarn dev`
+3. **Start Services**: `yarn dev:relayer` and `yarn dev:resolver` in separate terminals
+4. **Deploy Contracts**: `cd packages/contracts && yarn deploy`
+
+## 📋 Environment Variables
+
+Create `.env` files in each package directory using the `.env.example` templates:
+
+- `packages/contracts/.env` - RPC URLs, private keys for deployment
+- `packages/relayer/.env` - Relayer configuration, network settings  
+- `packages/resolver/.env` - API keys for price feeds, DEX integrations
+
+## 🏗 Architecture
+
+The monorepo follows a microservices architecture:
+
+1. **Frontend** - User interface for swaps and portfolio management
+2. **Contracts** - On-chain logic for swaps and governance
+3. **Relayer** - Off-chain transaction relaying and meta-transactions
+4. **Resolver** - Price discovery and optimal routing across DEXs
+
+All services communicate via REST APIs and shared TypeScript types.
+
+## 🤝 Contributing
+
+1. Create a feature branch
+2. Make your changes in the appropriate package
+3. Run tests: `yarn test`
+4. Run linting: `yarn lint`
+5. Submit a pull request
+
+## 📄 License
+
+MIT License - see LICENSE file for details
