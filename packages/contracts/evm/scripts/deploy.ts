@@ -1,4 +1,5 @@
 import { ethers } from "hardhat";
+import hre from "hardhat";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -6,8 +7,8 @@ async function main() {
   console.log("Deploying HTLC contracts...");
 
   const [deployer] = await ethers.getSigners();
-  console.log("Deploying contracts with the account:", deployer.address);
-  console.log("Account balance:", (await deployer.getBalance()).toString());
+  console.log("Deploying contracts with the account:", await deployer.getAddress());
+  console.log("Account balance:", (await ethers.provider.getBalance(deployer.address)).toString());
 
   // Deploy HTLCFactory
   console.log("Deploying HTLCFactory...");
@@ -29,7 +30,7 @@ async function main() {
     contracts: {
       HTLCFactory: factoryAddress
     },
-    deployer: deployer.address,
+    deployer: await deployer.getAddress(),
     deployedAt: new Date().toISOString()
   };
 
