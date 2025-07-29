@@ -17,7 +17,9 @@
     "dev:resolver": "yarn workspace @swap.garden/resolver dev",
     "dev:cli": "yarn workspace @swap.garden/cli dev",
     "build:cli": "yarn workspace @swap.garden/cli build",
-    "swap": "yarn workspace @swap.garden/cli swap"
+    "swap": "yarn workspace @swap.garden/cli swap",
+    "test:cli:quick": "yarn workspace @swap.garden/cli test:quick",
+    "test:cli:full": "yarn workspace @swap.garden/cli test:full"
   },
   "devDependencies": {
     "typescript": "^5"

@@ -10,7 +10,9 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "swap": "tsx src/index.ts swap",
-    "test": "jest"
+    "test": "jest",
+    "test:quick": "tsx src/test-swap.ts quick",
+    "test:full": "tsx src/test-swap.ts full"
   },
   "dependencies": {
     "ethers": "^6.4.0",

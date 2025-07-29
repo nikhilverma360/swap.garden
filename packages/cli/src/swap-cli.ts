@@ -367,6 +367,21 @@ export class SwapCLI {
     }
   }
 
+  async getStatus() {
+    try {
+      const response = await axios.get(`${this.resolverUrl}/status`);
+      return response.data;
+    } catch (error: any) {
+      if (error.response) {
+        throw new Error(`API Error: ${error.response.status} - ${error.response.data?.error || error.response.statusText}`);
+      } else if (error.request) {
+        throw new Error(`Network Error: Cannot connect to resolver service at ${this.resolverUrl}`);
+      } else {
+        throw new Error(`Request Error: ${error.message}`);
+      }
+    }
+  }
+
   private getChainId(chain: string): number {
     const chainConfig = config.chains.find(c => c.name.toLowerCase() === chain.toLowerCase());
     if (!chainConfig) {

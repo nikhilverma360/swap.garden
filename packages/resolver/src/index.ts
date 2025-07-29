@@ -66,7 +66,7 @@ app.post('/swap/create', async (req, res) => {
             dstToken,
             srcAmount,
             dstAmount,
-            timelock: timelock || (Math.floor(Date.now() / 1000) + 24 * 60 * 60) // 24 hours default
+            timelock: timelock || (Math.floor(Date.now() / 1000) + (2 * 60 * 60)) // 2 hours from now
         });
 
         console.log('Swap order created successfully:', swapOrder.orderHash);
@@ -96,7 +96,11 @@ app.post('/swap/execute', async (req, res) => {
         res.json(result);
     } catch (error: any) {
         console.error('Execute swap error:', error);
-        res.status(500).json({ error: 'Failed to execute swap' });
+        res.status(500).json({ 
+            error: 'Failed to execute swap',
+            details: error.message,
+            stack: error.stack
+        });
     }
 });
 
