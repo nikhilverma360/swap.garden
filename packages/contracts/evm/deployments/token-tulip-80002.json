@@ -1,0 +1,22 @@
+{
+  "network": "polygonAmoy",
+  "chainId": "80002",
+  "token": {
+    "name": "Tulip",
+    "symbol": "TULIP",
+    "decimals": 6,
+    "address": "0x71F4091F883A265F164907e7a70Fb44be20a0CF3"
+  },
+  "deployer": "0x04104D06fa5DB229ce02309aab0373Ab27095d8C",
+  "deployedAt": "2025-07-29T08:24:08.959Z",
+  "fundedAddresses": [
+    {
+      "address": "0xb91b06369b605182AA3d9100B589Ca1ADa502c53",
+      "amount": "10000.0"
+    },
+    {
+      "address": "0x04104D06fa5DB229ce02309aab0373Ab27095d8C",
+      "amount": "10000.0"
+    }
+  ]
+}
