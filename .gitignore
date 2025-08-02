@@ -15,7 +15,7 @@ node_modules/
 coverage/
 
 # next.js
-/.next/
+.next/
 /out/
 
 # production
@@ -59,3 +59,7 @@ logs/
 # Package manager lockfiles (keep yarn.lock but ignore others)
 package-lock.json
 pnpm-lock.yaml
+
+# example-folders
+example-contracts/
+PRD/

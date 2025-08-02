@@ -10,9 +10,16 @@
     "build": "yarn workspaces foreach -A run build",
     "test": "yarn workspaces foreach run test",
     "lint": "yarn workspaces foreach run lint",
-    "compile:contracts": "yarn workspace @swap.garden/contracts compile",
+    "compile:evm": "yarn workspace @swap.garden/contracts/evm compile",
+    "deploy:evm:sepolia": "yarn workspace @swap.garden/contracts/evm deploy:sepolia",
+    "deploy:evm:amoy": "yarn workspace @swap.garden/contracts/evm deploy:amoy",
     "dev:relayer": "yarn workspace @swap.garden/relayer dev",
-    "dev:resolver": "yarn workspace @swap.garden/resolver dev"
+    "dev:resolver": "yarn workspace @swap.garden/resolver dev",
+    "dev:cli": "yarn workspace @swap.garden/cli dev",
+    "build:cli": "yarn workspace @swap.garden/cli build",
+    "swap": "yarn workspace @swap.garden/cli swap",
+    "test:cli:quick": "yarn workspace @swap.garden/cli test:quick",
+    "test:cli:full": "yarn workspace @swap.garden/cli test:full"
   },
   "devDependencies": {
     "typescript": "^5"

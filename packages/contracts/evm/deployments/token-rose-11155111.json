@@ -1,0 +1,22 @@
+{
+  "network": "sepolia",
+  "chainId": "11155111",
+  "token": {
+    "name": "Rose",
+    "symbol": "ROSE",
+    "decimals": 18,
+    "address": "0xb4E06750949B30B7A69DEa2FfD537C438Af44708"
+  },
+  "deployer": "0x04104D06fa5DB229ce02309aab0373Ab27095d8C",
+  "deployedAt": "2025-07-29T08:27:25.938Z",
+  "fundedAddresses": [
+    {
+      "address": "0xb91b06369b605182AA3d9100B589Ca1ADa502c53",
+      "amount": "10000.0"
+    },
+    {
+      "address": "0x04104D06fa5DB229ce02309aab0373Ab27095d8C",
+      "amount": "10000.0"
+    }
+  ]
+}
