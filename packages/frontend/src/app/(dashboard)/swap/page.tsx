@@ -1,11 +1,10 @@
 "use client";
 import SwapComponent from './components/SwapComponent';
 import WalletConnection from './components/WalletConnection';
-import { useWeb3AuthConnect } from "@web3auth/modal/react";
+import Link from 'next/link';
 
 
 export default function SwapPage() {
-  const { isConnected } = useWeb3AuthConnect();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
@@ -21,9 +20,9 @@ export default function SwapPage() {
             
             <div className="flex items-center space-x-2 sm:space-x-4">
               <div className="hidden md:flex items-baseline space-x-4">
-                <a href="/" className="text-gray-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                <Link href="/" className="text-gray-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                   Home
-                </a>
+                </Link>
                 <span className="text-green-600 px-3 py-2 text-sm font-medium bg-green-100 rounded-full">
                   Swap
                 </span>

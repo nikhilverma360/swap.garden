@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { useWeb3AuthConnect, useWeb3AuthDisconnect, useWeb3AuthUser } from "@web3auth/modal/react";
+import { useWeb3AuthConnect, useWeb3AuthDisconnect } from "@web3auth/modal/react";
 import { useAccount, useChainId, useSwitchChain } from "wagmi";
 import { toast } from "sonner";
 
@@ -61,7 +61,7 @@ function ConnectedWalletCard({
       const chainInfo = CHAIN_INFO[newChainId];
       toast.success(`Switched to ${chainInfo?.name || `Chain ${newChainId}`}`);
       setShowNetworkDropdown(false);
-    } catch (error) {
+    } catch {
       toast.error('Failed to switch network');
     }
   };
@@ -184,10 +184,9 @@ function ConnectedWalletCard({
 interface ConnectWalletButtonProps {
   onConnect: () => void;
   isConnecting: boolean;
-  connectError?: Error | null;
 }
 
-function ConnectWalletButton({ onConnect, isConnecting, connectError }: ConnectWalletButtonProps) {
+function ConnectWalletButton({ onConnect, isConnecting }: ConnectWalletButtonProps) {
   return (
     <div className="flex flex-col items-center">
       <button
@@ -226,12 +225,11 @@ function ConnectWalletButton({ onConnect, isConnecting, connectError }: ConnectW
 
 interface WalletButtonProps {
   address: string;
-  connectorName: string;
   onClick: () => void;
   isConnecting?: boolean;
 }
 
-function WalletButton({ address, connectorName, onClick, isConnecting }: WalletButtonProps) {
+function WalletButton({ address, onClick, isConnecting }: WalletButtonProps) {
   const chainId = useChainId();
   const currentChain = CHAIN_INFO[chainId] || { name: `Chain ${chainId}`, icon: '🔗', color: 'bg-gray-500' };
   
@@ -319,7 +317,7 @@ export default function WalletConnection() {
       await disconnect();
       toast.info('Wallet disconnected');
       setShowDropdown(false);
-    } catch (error) {
+    } catch {
       // Error handling is done in useEffect above
     }
   };
@@ -329,7 +327,6 @@ export default function WalletConnection() {
       <div className="relative" ref={dropdownRef}>
         <WalletButton
           address={address}
-          connectorName={connectorName || 'Unknown'}
           onClick={() => setShowDropdown(!showDropdown)}
           isConnecting={connectLoading}
         />
@@ -354,7 +351,6 @@ export default function WalletConnection() {
     <ConnectWalletButton
       onConnect={connect}
       isConnecting={connectLoading}
-      connectError={connectError}
     />
   );
 }
