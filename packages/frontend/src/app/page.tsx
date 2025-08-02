@@ -14,9 +14,9 @@ export default function Home() {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <span className="text-white/70 px-3 py-2 rounded-md text-sm font-medium">
-                  Coming Soon
-                </span>
+                <a href="/swap" className="text-white/90 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors bg-white/10 backdrop-blur-sm border border-white/20">
+                  Launch App
+                </a>
               </div>
             </div>
           </div>
@@ -114,12 +114,12 @@ export default function Home() {
                   </div>
 
                   {/* Disabled Swap Button */}
-                  <button 
-                    className="w-full bg-white/5 backdrop-blur-lg border border-white/20 text-white/60 py-4 rounded-xl font-semibold text-lg cursor-not-allowed glass shadow-lg"
-                    disabled
+                  <a 
+                    href="/swap"
+                    className="block w-full bg-gradient-to-r from-green-500/80 to-emerald-500/80 backdrop-blur-lg border border-white/20 text-white py-4 rounded-xl font-semibold text-lg glass shadow-lg hover:from-green-500 hover:to-emerald-500 transition-all duration-200 text-center"
                   >
-                    Swap (Coming Soon)
-                  </button>
+                    Start Swapping
+                  </a>
                 </div>
               </div>
             </div>

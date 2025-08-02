@@ -1,0 +1,9 @@
+{
+  "network": "sepolia",
+  "chainId": "11155111",
+  "contracts": {
+    "HTLCFactory": "0xb89F0578D3C1Ddf9aEa843840445E05F1e9E242A"
+  },
+  "deployer": "0x04104D06fa5DB229ce02309aab0373Ab27095d8C",
+  "deployedAt": "2025-07-28T11:51:02.830Z"
+}
